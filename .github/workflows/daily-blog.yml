@@ -1,0 +1,82 @@
+name: Daily Blog Draft
+
+on:
+  schedule:
+    - cron: "18 5 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Generate artifacts without opening a PR"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  daily-blog:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4o-mini' }}
+      GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+      GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
+      GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+      REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+      REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+      REDDIT_USER_AGENT: ${{ vars.REDDIT_USER_AGENT }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Decide mode
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "dry_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "dry_run=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "branch_date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Generate dry-run artifact
+        if: steps.mode.outputs.dry_run == 'true'
+        run: node scripts/blog-automation.mjs
+
+      - name: Generate draft files
+        if: steps.mode.outputs.dry_run == 'false'
+        run: node scripts/blog-automation.mjs --write
+
+      - name: Validate app
+        run: |
+          npm run lint
+          npm run build
+
+      - name: Upload dry-run output
+        if: steps.mode.outputs.dry_run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-blog-dry-run
+          path: automation-output
+
+      - name: Open review PR
+        if: steps.mode.outputs.dry_run == 'false'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: content/daily-blog-${{ steps.mode.outputs.branch_date }}
+          title: "Daily blog draft: ${{ steps.mode.outputs.branch_date }}"
+          body-path: daily-blog-pr-body.md
+          commit-message: "Add daily blog draft for ${{ steps.mode.outputs.branch_date }}"
+          labels: content, review-needed

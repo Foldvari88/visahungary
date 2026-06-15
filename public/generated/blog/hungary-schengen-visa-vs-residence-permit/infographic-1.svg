@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Hungary short-stay visa versus residence permit</title>
+  <desc id="desc">A structured comparison of Schengen C visa and Hungary residence permit planning signals.</desc>
+  <rect width="1200" height="720" fill="#fff8ec"/>
+  <rect x="48" y="48" width="1104" height="624" rx="22" fill="#fffaf1" stroke="#dccdb6" stroke-width="2"/>
+  <text x="86" y="112" fill="#102b25" font-family="Arial, sans-serif" font-size="44" font-weight="700">Short stay or residence route?</text>
+  <text x="86" y="154" fill="#46544d" font-family="Arial, sans-serif" font-size="22">Start with duration and purpose before preparing documents.</text>
+  <g transform="translate(86 205)">
+    <rect width="470" height="350" rx="18" fill="#e6efe9" stroke="#0f4437" stroke-opacity=".22"/>
+    <text x="32" y="58" fill="#0f4437" font-family="Arial, sans-serif" font-size="30" font-weight="700">Schengen C visa</text>
+    <text x="32" y="100" fill="#46544d" font-family="Arial, sans-serif" font-size="20">Usually for short visits</text>
+    <circle cx="52" cy="155" r="10" fill="#c3922e"/>
+    <text x="78" y="162" fill="#102b25" font-family="Arial, sans-serif" font-size="22">Within 90 days in 180 days</text>
+    <circle cx="52" cy="215" r="10" fill="#c3922e"/>
+    <text x="78" y="222" fill="#102b25" font-family="Arial, sans-serif" font-size="22">Tourism, family visit, meetings</text>
+    <circle cx="52" cy="275" r="10" fill="#c3922e"/>
+    <text x="78" y="282" fill="#102b25" font-family="Arial, sans-serif" font-size="22">Not a long-term work route</text>
+  </g>
+  <g transform="translate(644 205)">
+    <rect width="470" height="350" rx="18" fill="#f4ead2" stroke="#9a1f35" stroke-opacity=".22"/>
+    <text x="32" y="58" fill="#9a1f35" font-family="Arial, sans-serif" font-size="30" font-weight="700">Residence permit</text>
+    <text x="32" y="100" fill="#46544d" font-family="Arial, sans-serif" font-size="20">Usually for 90+ day purposes</text>
+    <circle cx="52" cy="155" r="10" fill="#0f4437"/>
+    <text x="78" y="162" fill="#102b25" font-family="Arial, sans-serif" font-size="22">Work, study, family, business</text>
+    <circle cx="52" cy="215" r="10" fill="#0f4437"/>
+    <text x="78" y="222" fill="#102b25" font-family="Arial, sans-serif" font-size="22">Route-specific document set</text>
+    <circle cx="52" cy="275" r="10" fill="#0f4437"/>
+    <text x="78" y="282" fill="#102b25" font-family="Arial, sans-serif" font-size="22">Filing path depends on facts</text>
+  </g>
+  <path d="M560 380h80" stroke="#dccdb6" stroke-width="8" stroke-linecap="round"/>
+  <path d="M625 354l32 26-32 26" fill="none" stroke="#dccdb6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="86" y="590" width="1028" height="46" rx="23" fill="#0f4437"/>
+  <text x="120" y="621" fill="#fff8ec" font-family="Arial, sans-serif" font-size="21" font-weight="700">If the purpose is long-term work, study, family residence, remote work, or business, review a residence route first.</text>
+</svg>
