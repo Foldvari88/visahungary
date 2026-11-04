@@ -1,0 +1,38 @@
+{
+  "dryRun": false,
+  "topic": {
+    "query": "can I apply for a Hungary residence permit from inside Hungary",
+    "source": "seed",
+    "impressions": 44,
+    "clicks": 1,
+    "ctr": 0.023,
+    "painPoints": 0,
+    "examples": [],
+    "score": 78
+  },
+  "brief": {
+    "slug": "can-i-apply-for-a-hungary-residence-permit-from-inside-hungary",
+    "query": "can I apply for a Hungary residence permit from inside Hungary",
+    "painPoint": "Applicants need a practical answer before choosing a Hungary visa or residence route.",
+    "suggestedTitle": "Can I Apply For A Hungary Residence Permit From Inside Hungary: Practical Guide",
+    "metaDescription": "A practical, source-based guide to can I apply for a Hungary residence permit from inside Hungary, including route signals, documents, risk points, and next steps.",
+    "sources": [
+      {
+        "title": "Enter Hungary official portal",
+        "url": "https://enterhungary.gov.hu/"
+      },
+      {
+        "title": "European Commission Schengen visa policy",
+        "url": "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy_en"
+      }
+    ],
+    "internalLinks": [
+      "/en/calculator",
+      "/en/visa-guides",
+      "/en/blog"
+    ],
+    "riskLevel": "medium"
+  },
+  "slug": "can-i-apply-for-a-hungary-residence-permit-from-inside-hungary",
+  "score": 78
+}
